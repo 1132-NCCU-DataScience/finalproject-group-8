@@ -1,45 +1,58 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/HR2Xz9sU)
-# [GroupID] your project title
-The goals of this project.
+# [Group 8] 租屋市場分析工具
 
-## Contributors
-|組員|系級|學號|工作分配|
-|-|-|-|-|
-|何大南|資科碩二|110753202|團隊中的吉祥物🦒，負責增進團隊氣氛| 
-|張小明|資科碩二|xxxxxxxxx|團隊的中流砥柱，一個人打十個|
+基於內政部實價登錄資料的互動式租屋市場分析應用程式，提供租金分析、價格預測、地區推薦等功能。
 
-## Quick start
-Please provide an example command or a few commands to reproduce your analysis, such as the following R script:
-```R
-Rscript code/your_script.R --input data/training --output results/performance.tsv
+### 工作分配
+
+| 姓名   | 系級    | 學號       | 工作分配  | 備註         |
+| :------| :-------| :-------- | :------- | :----------- |
+|湯晴羽	 |資管四	| 110306012 |
+|冼冠宇	 |資訊碩一  | 113753126 |
+|呂杰勳	 |資訊碩一  | 113753132 |
+|陳怡然	 |資訊四	| 110703040 |
+|劉白	 |資訊三	| 111703029 |
+|涂世豪	 |資訊四	| 110703014 |
+
+## 快速開始
+
+### 1. 啟動應用程式
+```bash
+# 在專案目錄下執行（套件會自動安裝）
+Rscript main.R
 ```
 
-## Folder organization and its related description
-idea by Noble WS (2009) [A Quick Guide to Organizing Computational Biology Projects.](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424) PLoS Comput Biol 5(7): e1000424.
+### 2. 開啟瀏覽器
+訪問 http://localhost:3838
 
-### docs
-* Your presentation, 1132_DS-FP_groupID.ppt/pptx/pdf (i.e.,1132_DS-FP_group1.ppt), by **06.10**
-* Any related document for the project, i.e.,
-  * discussion log
-  * software user guide
+> **注意**：首次執行時會自動安裝必要套件，請耐心等待安裝完成。
 
-### data
-* Input
-  * Source
-  * Format
-  * Size
+## 主要功能
 
-### code
-* Analysis steps
-* Which method or package do you use?
-* How do you perform training and evaluation?
-  * Cross-validation, or extra separated data
-* What is a null model for comparison?
+- **市場總覽**：租金分布、行政區比較、建物型態統計
+- **詳細分析**：箱型圖、樓層分析、時間趨勢
+- **價格預測**：基於線性迴歸的租金預測模型
+- **地區推薦**：根據預算和需求推薦適合地區
+- **互動地圖**：視覺化各區域租金分布
+- **原始資料**：完整資料檢視與篩選
 
-### results
-* What is your performance?
-* Is the improvement significant?
+## 專案結構
 
-## References
-* Packages you use
-* Related publications
+- `main.R` - 應用程式啟動檔
+- `ui.R` - 使用者介面定義
+- `server.R` - 伺服器邏輯處理
+- `utils.R` - 套件管理與資料前處理
+- `data/MOI_rent.csv` - 租屋資料檔案
+
+## 產出結果
+<img src="result/demo-1.png" alt="Demo Screenshot 1" style="width: 46em;">
+
+
+## 資料來源
+
+[內政部不動產租賃實價登錄](https://lvr.land.moi.gov.tw/jsp/index.jsp)
+
+## 系統需求
+
+- R 4.0 或以上版本
+- 建議記憶體 4GB 以上
+- 穩定的網路連線（用於套件安裝）
