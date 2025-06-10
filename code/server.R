@@ -126,6 +126,7 @@ server <- function(input, output, session) {
     updateSelectInput(session, "building_type_filter", selected = character(0))
     updateSliderInput(session, "price_range", value = c(0, 6600))
     updateSliderInput(session, "area_range", value = c(0, 60))
+    updateSliderInput(session, "year_range", value = c(2018, 2024))
   })
 
   # === 市場總覽頁面 ===
@@ -429,7 +430,8 @@ server <- function(input, output, session) {
         land_area_ping = input$pred_area,
         district = input$pred_district,
         building_type = input$pred_building_type,
-        floor = input$pred_floor
+        floor = input$pred_floor,
+        converted_date = as.Date("2025-01-01")
       )
       
       for (col in c("district", "building_type", "floor")) {
