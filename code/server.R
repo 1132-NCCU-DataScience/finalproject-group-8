@@ -22,7 +22,7 @@ server <- function(input, output, session) {
 
   # --- Initial Data Load ---
   observe({
-    df <- read.csv("data/all_cleaned.csv", fileEncoding = "UTF-8-BOM")
+    df <- read.csv("data/MOI_real_expand.csv", fileEncoding = "UTF-8-BOM")
     processed_df <- preprocess(df)
     data(processed_df)
   })
