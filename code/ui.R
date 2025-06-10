@@ -60,6 +60,16 @@ sidebar <- dashboardSidebar(
     step = 3,
     width = "90%"
   ),
+
+  sliderInput(
+    "year_range",
+    "年分範圍:",
+    min = 2018,
+    max = 2024,
+    value = c(2018, 2024),
+    step = 1,
+    width = "90%"
+  ),
   
   br(),
   actionButton(
@@ -90,6 +100,7 @@ interactive_map_tab <- if(leaflet_available) {
 }
 
 body <- dashboardBody(
+  shinyjs::useShinyjs(),
   tags$head(
     tags$style(HTML("
       .content-wrapper, .right-side {
@@ -213,6 +224,10 @@ body <- dashboardBody(
             status = "warning", 
             solidHeader = TRUE,
             width = 12,
+            actionButton("retrain_model_analysis", "更新模型", 
+                         icon = icon("sync"), class = "btn-primary"),
+            hr(),
+            uiOutput("model_status_text"),
             verbatimTextOutput("model_summary")
           )
         )
